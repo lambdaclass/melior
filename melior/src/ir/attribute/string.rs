@@ -1,6 +1,9 @@
 use super::{Attribute, AttributeLike};
-use crate::{Context, Error, StringRef};
-use mlir_sys::{mlirStringAttrGet, mlirStringAttrGetValue, MlirAttribute};
+use crate::{
+    ir::{Type, TypeLike},
+    Context, Error, StringRef,
+};
+use mlir_sys::{mlirStringAttrGet, mlirStringAttrGetValue, mlirStringAttrTypedGet, MlirAttribute};
 
 /// A string attribute.
 #[derive(Clone, Copy)]
@@ -14,6 +17,16 @@ impl<'c> StringAttribute<'c> {
         unsafe {
             Self::from_raw(mlirStringAttrGet(
                 context.to_raw(),
+                StringRef::new(string).to_raw(),
+            ))
+        }
+    }
+
+    /// Creates a string attribute.
+    pub fn new_typed(ty: Type, string: &str) -> Self {
+        unsafe {
+            Self::from_raw(mlirStringAttrTypedGet(
+                ty.to_raw(),
                 StringRef::new(string).to_raw(),
             ))
         }

@@ -4,3 +4,6 @@ resolver = "2"
 
 [profile.release]
 lto = true
+
+[workspace.dependencies]
+mlir-sys = { git = "https://github.com/lambdaclass/mlir-sys", branch = "llvm19"}

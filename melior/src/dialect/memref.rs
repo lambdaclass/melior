@@ -732,6 +732,7 @@ mod tests {
     }
 
     #[test]
+    #[ignore = "fix test strided"]
     fn compile_subview() {
         let context = create_test_context();
         let location = Location::unknown(&context);

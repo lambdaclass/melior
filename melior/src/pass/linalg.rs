@@ -3,16 +3,16 @@
 melior_macro::passes!(
     "Linalg",
     [
-        mlirCreateLinalgConvertElementwiseToLinalg,
-        mlirCreateLinalgLinalgBufferize,
-        mlirCreateLinalgLinalgDetensorize,
-        mlirCreateLinalgLinalgElementwiseOpFusion,
-        mlirCreateLinalgLinalgFoldUnitExtentDims,
-        mlirCreateLinalgLinalgGeneralization,
-        mlirCreateLinalgLinalgInlineScalarOperands,
-        mlirCreateLinalgLinalgLowerToAffineLoops,
-        mlirCreateLinalgLinalgLowerToLoops,
-        mlirCreateLinalgLinalgLowerToParallelLoops,
-        mlirCreateLinalgLinalgNamedOpConversion,
+        mlirCreateLinalgConvertElementwiseToLinalgPass,
+        mlirCreateLinalgLinalgDetensorizePass,
+        mlirCreateLinalgLinalgElementwiseOpFusionPass,
+        mlirCreateLinalgLinalgFoldUnitExtentDimsPass,
+        mlirCreateLinalgLinalgInlineScalarOperandsPass,
+        mlirCreateLinalgLinalgNamedOpConversionPass,
+        mlirCreateLinalgConvertLinalgToLoopsPass,
+        mlirCreateLinalgConvertLinalgToParallelLoopsPass,
+        mlirCreateLinalgLinalgBlockPackMatmul,
+        mlirCreateLinalgLinalgGeneralizeNamedOpsPass,
+        mlirCreateLinalgLinalgSpecializeGenericOpsPass
     ]
 );

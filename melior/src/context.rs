@@ -320,7 +320,7 @@ mod tests {
     fn context_to_ref() {
         let ctx = Context::new();
         let ctx_ref = ctx.to_ref();
-        let ctx_ref_to_ref: &Context = unsafe { &ctx_ref.to_ref() };
+        let ctx_ref_to_ref: &Context = unsafe { ctx_ref.to_ref() };
 
         assert_eq!(&ctx_ref, ctx_ref_to_ref);
     }
